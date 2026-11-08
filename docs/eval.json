@@ -1,0 +1,129 @@
+{
+  "app": "PRIMER.EXE",
+  "generatedAt": "2026-11-08T19:37:21.192Z",
+  "score": 100,
+  "cases": 18,
+  "actions": 305,
+  "evidence": 108,
+  "phases": [
+    {
+      "phase": "YIL 01",
+      "name": "Sıfırıncı Gün",
+      "cases": 4,
+      "actions": 33,
+      "avgDifficulty": 1.75,
+      "evidence": 24
+    },
+    {
+      "phase": "YIL 02",
+      "name": "İlk Teslimat",
+      "cases": 5,
+      "actions": 41,
+      "avgDifficulty": 3,
+      "evidence": 30
+    },
+    {
+      "phase": "YIL 03",
+      "name": "Ölçek",
+      "cases": 4,
+      "actions": 32,
+      "avgDifficulty": 4,
+      "evidence": 24
+    },
+    {
+      "phase": "YIL 04",
+      "name": "Mimar",
+      "cases": 5,
+      "actions": 46,
+      "avgDifficulty": 4.6,
+      "evidence": 30
+    }
+  ],
+  "skillCoverage": {
+    "debug": 6,
+    "algo": 3,
+    "systems": 13,
+    "frontend": 4,
+    "backend": 9,
+    "testing": 11,
+    "comm": 8
+  },
+  "checks": [
+    {
+      "name": "Şema doğrulaması",
+      "pass": true,
+      "detail": "0 hata"
+    },
+    {
+      "name": "Vaka hacmi",
+      "pass": true,
+      "detail": "18 vaka"
+    },
+    {
+      "name": "Dört yıl dolu",
+      "pass": true,
+      "detail": "Y1:4 Y2:5 Y3:4 Y4:5"
+    },
+    {
+      "name": "Eylem derinliği",
+      "pass": true,
+      "detail": "305 olası eylem"
+    },
+    {
+      "name": "Benzersiz vaka kodu",
+      "pass": true,
+      "detail": "kodlar tekil"
+    },
+    {
+      "name": "Zorluk dağılımı",
+      "pass": true,
+      "detail": "1-5 arası 1,2,3,4,5"
+    },
+    {
+      "name": "Beceri kapsamı",
+      "pass": true,
+      "detail": "{\"debug\":6,\"algo\":3,\"systems\":13,\"frontend\":4,\"backend\":9,\"testing\":11,\"comm\":8}"
+    },
+    {
+      "name": "Vaka planı (brief + hedef + saha notu)",
+      "pass": true,
+      "detail": "0 eksik"
+    },
+    {
+      "name": "Debrief derinliği (kök neden + 3 çıkarım)",
+      "pass": true,
+      "detail": "0 zayıf"
+    },
+    {
+      "name": "Yanlış karar bedeli",
+      "pass": true,
+      "detail": "0 vakada bedelli yanlış yok"
+    },
+    {
+      "name": "İletişim eylemi",
+      "pass": true,
+      "detail": "0 vakada iletişim yok"
+    },
+    {
+      "name": "Onarım eylemi",
+      "pass": true,
+      "detail": "0 vakada fix yok"
+    },
+    {
+      "name": "Başlangıç gerilimi",
+      "pass": true,
+      "detail": "0 vakada vital çok düşük"
+    },
+    {
+      "name": "Kanıt derinliği",
+      "pass": true,
+      "detail": "min 6 / max 6"
+    },
+    {
+      "name": "Ödünleşim dili",
+      "pass": true,
+      "detail": "18/18 vaka"
+    }
+  ],
+  "critical": []
+}

@@ -1,0 +1,606 @@
+/* ==========================================================================
+   Control Room (server-driven UI console)
+   ========================================================================== */
+
+.console-screen {
+  width: 100%;
+  min-height: 100dvh;
+  padding: 0 13px calc(20px + var(--safe-bottom));
+}
+
+.console-head {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0 -13px;
+  padding: calc(9px + var(--safe-top)) 13px 9px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+.console-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.console-tag {
+  padding: 2px 5px;
+  font-size: 0.46rem;
+  letter-spacing: 0.12em;
+  color: var(--warn);
+  border: 1px solid color-mix(in srgb, var(--warn) 30%, var(--line));
+}
+
+.console-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.console-actions .icon-btn {
+  width: 30px;
+  height: 30px;
+}
+
+.console-statusbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  margin: 0 -13px 10px;
+  padding: 5px 13px;
+  color: var(--dim);
+  font-size: 0.48rem;
+  letter-spacing: 0.05em;
+  background: #050a13;
+  border-bottom: 1px solid var(--line);
+}
+
+.console-statusbar > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.console-clock {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+.console-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.console-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.console-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  color: var(--dim);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+}
+
+.console-tab.on {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.console-main {
+  min-height: 40dvh;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.console-panel {
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.console-panel .section-head {
+  margin-bottom: 8px;
+}
+
+.console-panel .section-head h2 {
+  font-size: 0.82rem;
+}
+
+.console-lead {
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 0.64rem;
+  line-height: 1.55;
+}
+
+.console-panel .note,
+.console-panel .fine {
+  margin-top: 8px;
+}
+
+.console-kv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.console-kv div {
+  padding: 6px;
+  background: #060c16;
+  border: 1px solid var(--line);
+}
+
+.console-kv span {
+  display: block;
+  color: var(--dim);
+  font-size: 0.44rem;
+  letter-spacing: 0.07em;
+}
+
+.console-kv strong {
+  font-size: 0.62rem;
+  color: var(--ink);
+}
+
+.preset-grid {
+  display: grid;
+  gap: 7px;
+}
+
+.preset-card {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  background: #060c16;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--preset);
+}
+
+.preset-swatch {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 3px;
+}
+
+.preset-swatch i {
+  display: block;
+  width: 15px;
+  height: 6px;
+  background: var(--preset);
+}
+
+.preset-swatch i:nth-child(2) {
+  background: color-mix(in srgb, var(--preset) 55%, #fff 20%);
+}
+
+.preset-swatch i:nth-child(3) {
+  background: color-mix(in srgb, var(--preset) 25%, var(--panel));
+}
+
+.preset-card h3 {
+  font-size: 0.76rem;
+  color: var(--preset);
+}
+
+.preset-card p {
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.45;
+}
+
+.preset-card .btn {
+  justify-self: start;
+  margin-top: 3px;
+}
+
+.console-editor {
+  min-height: 120px;
+  font-size: 0.64rem;
+  line-height: 1.55;
+  background: #040810;
+  border-color: var(--line);
+}
+
+.console-editor:focus {
+  border-color: var(--accent);
+}
+
+.console-btnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.console-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: 8px;
+  padding: 7px 9px;
+  font-size: 0.62rem;
+  line-height: 1.45;
+  border: 1px solid var(--line-2);
+}
+
+.console-msg.error {
+  color: var(--bad);
+  border-color: color-mix(in srgb, var(--bad) 40%, var(--line));
+  background: color-mix(in srgb, var(--bad) 6%, #060c16);
+}
+
+.console-msg.ok {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  background: color-mix(in srgb, var(--accent) 5%, #060c16);
+}
+
+.console-busy {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+  padding: 6px 9px;
+  color: var(--warn);
+  font-size: 0.6rem;
+  border: 1px dashed color-mix(in srgb, var(--warn) 35%, var(--line));
+}
+
+.console-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  color: var(--dim);
+  font-size: 0.52rem;
+}
+
+.console-foot .logo-text {
+  font-size: 0.6rem;
+}
+
+.console-foot code {
+  font-size: 0.9em;
+}
+
+.revision-list {
+  display: grid;
+  gap: 4px;
+}
+
+.revision-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  background: #060c16;
+  border-left: 2px solid var(--line-2);
+}
+
+.revision-row:first-child {
+  border-left-color: var(--accent);
+}
+
+.rev-no {
+  color: var(--accent);
+  font-size: 0.54rem;
+  font-weight: 700;
+}
+
+.revision-row strong {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 400;
+}
+
+.revision-row .mono {
+  color: var(--dim);
+  font-size: 0.44rem;
+}
+
+.prompt-examples {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.prompt-chip {
+  padding: 6px 8px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.58rem;
+  line-height: 1.4;
+  background: #060c16;
+  border: 1px dashed var(--line);
+}
+
+.prompt-chip:hover {
+  color: var(--ink);
+  border-color: var(--line-2);
+}
+
+.prompt-editor {
+  min-height: 92px;
+}
+
+.console-note {
+  display: flex;
+  gap: 6px;
+  margin-top: 9px;
+  padding: 7px;
+  color: var(--dim);
+  font-size: 0.58rem;
+  line-height: 1.5;
+  border: 1px dashed var(--line);
+}
+
+.console-note .px-icon {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--accent-2);
+}
+
+.console-list {
+  display: grid;
+  gap: 6px;
+}
+
+.console-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.6rem;
+  line-height: 1.45;
+}
+
+.console-list li .px-icon {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+.muted-pill {
+  color: var(--dim);
+  border-color: var(--line);
+}
+
+.muted-pill i {
+  background: var(--dim);
+  box-shadow: none;
+}
+
+.event-bars {
+  display: grid;
+  gap: 4px;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 1.2fr) minmax(40px, 2fr) 26px;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.55rem;
+}
+
+.event-row .mono {
+  color: var(--muted);
+  font-size: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-bar {
+  height: 7px;
+  background: #050a13;
+  border: 1px solid var(--line);
+}
+
+.event-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent-2);
+}
+
+.event-row strong {
+  text-align: right;
+  font-size: 0.55rem;
+}
+
+.big-stat {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 9px;
+  padding: 9px;
+  background: #060c16;
+  border: 1px solid var(--line);
+}
+
+.big-stat strong {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.big-stat span {
+  color: var(--dim);
+  font-size: 0.5rem;
+}
+
+.event-table {
+  display: grid;
+  font-size: 0.55rem;
+}
+
+.event-table-head,
+.event-table-row {
+  display: grid;
+  grid-template-columns: 58px minmax(70px, 0.8fr) minmax(0, 1.6fr);
+  gap: 6px;
+  padding: 4px 5px;
+}
+
+.event-table-head {
+  color: var(--dim);
+  font-size: 0.44rem;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--line);
+}
+
+.event-table-row:nth-child(odd) {
+  background: #060c16;
+}
+
+.event-table-row .mono {
+  color: var(--dim);
+  font-size: 0.5rem;
+}
+
+.event-table-row .muted {
+  font-size: 0.52rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* gate */
+
+.console-gate {
+  display: flex;
+  flex-direction: column;
+}
+
+.gate-card {
+  width: min(430px, 100%);
+  margin: auto;
+  padding: 18px 15px;
+  background: var(--panel);
+  border: 2px solid var(--line-2);
+  box-shadow: var(--shadow);
+}
+
+.gate-visual {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 65%),
+    #050a13;
+  border: 1px solid var(--line);
+}
+
+.gate-glyph {
+  color: var(--accent);
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 30%, transparent));
+}
+
+.gate-visual .mono {
+  color: var(--dim);
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+}
+
+.gate-card h1 {
+  margin: 5px 0 7px;
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.gate-card > p {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.gate-card .console-hint {
+  margin: 0 0 12px;
+  color: var(--dim);
+  font-size: 0.58rem;
+}
+
+.gate-list {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  color: var(--dim);
+  font-size: 0.56rem;
+}
+
+.gate-list span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.console-gate .console-foot {
+  margin-top: auto;
+}
+
+.danger-text {
+  color: var(--bad);
+}
+
+@media (min-width: 700px) {
+  .console-grid {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  }
+
+  .console-panel.wide {
+    grid-column: span 2;
+  }
+
+  .preset-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .console-screen {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .console-head {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .console-statusbar {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

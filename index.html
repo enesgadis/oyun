@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#080d16" />
+  <meta name="description" content="PRIMER.EXE — 4 yılda seninle büyüyen, sunucu güdümlü yazılım mühendisliği simülatörü. Kanıt topla, hipotez kur, sistemi onar." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="PRIMER.EXE" />
+  <meta property="og:title" content="PRIMER.EXE — Genç Mühendisin Resimli Kılavuzu" />
+  <meta property="og:description" content="Kod yazmak kolay. Doğru kodu, doğru kanıtla, doğru ekiple yazmak zor." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/icons/icon-512.png" />
+  <title>PRIMER.EXE — Genç Mühendisin Resimli Kılavuzu</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/screens.css" />
+  <link rel="stylesheet" href="/css/case.css" />
+  <link rel="stylesheet" href="/css/report.css" />
+  <link rel="stylesheet" href="/css/console.css" />
+</head>
+<body>
+  <div id="app" class="app-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="false"></div>
+  <div id="sheet-root"></div>
+
+  <div id="boot-screen" class="boot-screen" role="status" aria-label="Sistem açılıyor">
+    <div class="boot-inner">
+      <div class="boot-logo" aria-hidden="true">
+        <span class="boot-caret">&gt;</span>
+        <span class="boot-name">PRIMER<span>.</span>EXE</span>
+      </div>
+      <p class="boot-sub">GENÇ MÜHENDİSİN RESİMLİ KILAVUZU</p>
+      <div class="boot-bar"><i></i></div>
+      <p class="boot-line">SİSTEM AÇILIYOR<span class="boot-dots">...</span></p>
+      <p class="boot-fine">1995 → 2026 // sunucu güdümlü arayüz</p>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript-panel">
+      <h1>JavaScript gerekli.</h1>
+      <p>PRIMER.EXE tarayıcıda çalışan bir simülasyondur. Devam etmek için JavaScript’i aç.</p>
+    </div>
+  </noscript>
+
+  <script type="module" src="/js/app.mjs"></script>
+</body>
+</html>
